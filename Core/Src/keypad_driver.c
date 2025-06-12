@@ -15,7 +15,7 @@ static const char keypad_map[KEYPAD_ROWS][KEYPAD_COLS] = {
 void keypad_init(keypad_handle_t* keypad) {
     for (int i = 0; i < KEYPAD_ROWS; i++) {
         // Configurar las filas como salidas
-        HAL_GPIO_WritePin(keypad->row_ports[i], keypad->row_pins[i], GPIO_PIN_SET);
+        HAL_GPIO_WritePin(keypad->row_ports[i], keypad->row_pins[i], GPIO_PIN_RESET);
         GPIO_InitTypeDef GPIO_InitStruct = {0};
         GPIO_InitStruct.Pin = keypad->row_pins[i];
         GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;

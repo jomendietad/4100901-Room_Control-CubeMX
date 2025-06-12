@@ -22,7 +22,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "led_driver.h"
-#include "led_door.h"
 #include "ring_buffer.h"
 #include "keypad_driver.h"
 /* USER CODE END Includes */
@@ -119,6 +118,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+  keypad_init(&keypad);
   led_init(&led1);
   ring_buffer_init(&ring_buffer, ring_buffer_memory, RING_BUFFER_SIZE);
   // HAL_UART_Receive_IT(&huart2, &uart2_rx_data, 1);
